@@ -1,3 +1,6 @@
+// untuk membaca tanggal hari ini
+document.getElementById('tanggalBayar').valueAsDate = new Date();
+
 const captchaLabel = document.getElementById("captchaLabel");
 const refreshCaptcha = document.getElementById("refreshCaptcha");
 const kwitansiForm = document.getElementById("kwitansiForm");
@@ -5,12 +8,13 @@ const dataTable = document.getElementById("dataTable");
 
 let captchaValue;
 
-// Fungsi untuk generate captcha
+// Fungsi untuk generate captcha baru
 function generateCaptcha() {
     const a = Math.floor(Math.random() * 10);
     const b = Math.floor(Math.random() * 10);
     captchaValue = a + b;
     captchaLabel.textContent = `${a} + ${b}`;
+    document.getElementById("captcha").value = ""; // Kosongkan input captcha
 }
 
 // Fungsi untuk mengambil data dari server dan memperbarui tabel
@@ -40,7 +44,8 @@ kwitansiForm.addEventListener("submit", async (e) => {
 
     const captchaInput = document.getElementById("captcha").value;
     if (parseInt(captchaInput) !== captchaValue) {
-        alert("Captcha salah!");
+        alert("Captcha salah! Harap coba lagi.");
+        generateCaptcha();  // Refresh captcha otomatis jika salah
         return;
     }
 
@@ -53,14 +58,14 @@ kwitansiForm.addEventListener("submit", async (e) => {
     if (response.ok) {
         alert("Data berhasil disimpan!");
         kwitansiForm.reset();
-        generateCaptcha();
+        generateCaptcha(); // Buat captcha baru setelah sukses
         loadData(); // Refresh tabel setelah submit
     } else {
         alert("Terjadi kesalahan saat menyimpan data.");
     }
 });
 
-// Event refresh captcha
+// Event klik tombol refresh captcha
 refreshCaptcha.addEventListener("click", generateCaptcha);
 
 generateCaptcha();

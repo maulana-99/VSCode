@@ -6,5 +6,21 @@
         "jurusan": "IPS",
         "totalBayar": "10000",
         "keterangan": "test1"
+    },
+    {
+        "namaLengkap": "Ilham",
+        "tanggalBayar": "2025-01-20",
+        "kelas": "X",
+        "jurusan": "IPA",
+        "totalBayar": "10000",
+        "keterangan": "Bolos"
+    },
+    {
+        "namaLengkap": "Zaki",
+        "tanggalBayar": "2025-01-20",
+        "kelas": "X",
+        "jurusan": "IPA",
+        "totalBayar": "210000",
+        "keterangan": "Pergi"
     }
 ]
