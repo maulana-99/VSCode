@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Kwitansi</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <form id="kwitansiForm">
+        <div class="card">
+            <div class="card-header text-center">
+                <h4>Form Kwitansi</h4>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label for="namaLengkap" class="form-label">Nama Lengkap</label>
+                    <input type="text" class="form-control" id="namaLengkap" name="namaLengkap" required>
+                </div>
+                <div class="mb-3">
+                    <label for="tanggalBayar" class="form-label">Tanggal Bayar</label>
+                    <input type="date" class="form-control" id="tanggalBayar" name="tanggalBayar" required>
+                </div>
+                <div class="mb-3">
+                    <label for="kelas" class="form-label">Kelas</label>
+                    <select class="form-select" id="kelas" name="kelas" required>
+                        <option value="">Pilih Kelas</option>
+                        <option value="X">X</option>
+                        <option value="XI">XI</option>
+                        <option value="XII">XII</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="jurusan" class="form-label">Jurusan</label>
+                    <select class="form-select" id="jurusan" name="jurusan" required>
+                        <option value="">Pilih Jurusan</option>
+                        <option value="IPA">IPA</option>
+                        <option value="IPS">IPS</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="totalBayar" class="form-label">Total Bayar (Rp)</label>
+                    <input type="number" class="form-control" id="totalBayar" name="totalBayar" required>
+                </div>
+                <div class="mb-3">
+                    <label for="keterangan" class="form-label">Keterangan</label>
+                    <textarea class="form-control" id="keterangan" name="keterangan"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="captcha" class="form-label">Captcha: <span id="captchaLabel"></span></label>
+                    <input type="text" class="form-control" id="captcha" name="captcha" required>
+                    <button type="button" class="btn btn-secondary mt-2" id="refreshCaptcha">Refresh Captcha</button>
+                </div>
+            </div>
+            <div class="card-footer text-center">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+
+    <div class="mt-5">
+        <h4>Data Kwitansi</h4>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Nama Lengkap</th>
+                    <th>Tanggal Bayar</th>
+                    <th>Kelas</th>
+                    <th>Jurusan</th>
+                    <th>Total Bayar</th>
+                    <th>Keterangan</th>
+                </tr>
+            </thead>
+            <tbody id="dataTable">
+                <!-- Data akan ditampilkan di sini -->
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
