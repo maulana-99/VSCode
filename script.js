@@ -20,7 +20,7 @@ function generateCaptcha() {
       captchaValue = a + b;
       break;
     case "-":
-      captchaValue = Math.max(a, b) - Math.min(a, b); // Hindari hasil negatif
+      captchaValue = a - b;
       break;
     case "*":
       captchaValue = a * b;
